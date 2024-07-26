@@ -1,0 +1,179 @@
+@font-face {
+  font-family: "Figtree";
+  src: url("../fonts/Figtree-VariableFont_wght.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "FigtreeExtraBold";
+  src: url("../fonts/Figtree-ExtraBold.ttf") format("truetype");
+  font-display: swap;
+}
+
+body {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 384px;
+  min-height: 100vh;
+  background-color: #f4d04e;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  font-family: "Figtree", sans-serif;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background-color: white;
+  box-shadow: 8px 8px 0px rgba(0, 0, 0, 1);
+  width: 100%;
+  height: 100px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  border: 1px solid black;
+}
+
+.mainComponent {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: 384px;
+  min-height: 522px;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 24px;
+  box-sizing: border-box;
+  gap: 24px;
+  box-shadow: 8px 8px 0px rgba(0, 0, 0, 1);
+  transition: 0.3s ease-in-out;
+  margin: 24px;
+}
+
+.mainComponent:has(button:hover) {
+  box-shadow: 16px 16px 0px rgba(0, 0, 0, 1);
+}
+
+.image1 {
+  border-radius: 20px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.secondDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.learning {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 82px;
+  height: 29px;
+  background-color: #f4d04e;
+  font-size: 14px;
+  color: black;
+  font-weight: bolder;
+  border-radius: 4px;
+  line-height: 150%;
+  margin-block: auto;
+  font-family: "FigtreeExtraBold", sans-serif;
+}
+
+.published {
+  color: black;
+  font-size: 14px;
+  line-height: 150%;
+  margin-block: auto;
+  font-weight: 600;
+}
+
+button {
+  outline: none;
+  border: none;
+  width: fit-content;
+  line-height: 100%;
+  margin: 0px;
+  padding: 0px;
+  margin-block: 10px;
+  background: none;
+}
+button:hover {
+  cursor: pointer;
+}
+
+button:hover > span {
+  color: #f4d04e;
+}
+
+button span {
+  color: black;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 100%;
+  margin-block: auto;
+  font-weight: bolder;
+  font-family: "FigtreeExtraBold", sans-serif;
+  transition: 0.15s ease-in-out;
+}
+
+p {
+  color: hsl(0, 0%, 46%);
+  font-weight: 500;
+  line-height: 150%;
+  margin-block: auto;
+  font-size: 16px;
+}
+
+.thirdDiv {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.image2 {
+  width: 32px;
+  height: 32px;
+}
+
+.nameSpan {
+  color: black;
+  font-size: 14px;
+  font-weight: bolder;
+  line-height: 150%;
+  margin-block: auto;
+  font-family: "FigtreeExtraBold", sans-serif;
+}
+
+@media (max-width: 640px) {
+  body {
+    min-height: 100dvh;
+  }
+  .mainComponent {
+    width: 327px;
+  }
+
+  .learning {
+    width: 73px;
+    height: 26px;
+    font-size: 12px;
+  }
+
+  .published {
+    font-size: 12px;
+  }
+
+  button span {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+}

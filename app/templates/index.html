@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blog preview card">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon-32x32.png') }}" sizes="32x32" type="image/png">
+    <title>{{ siteTitle }}</title>
+</head>
+
+<body>
+    <nav></nav>
+    <main class="mainComponent">
+        <img width="336" height="201" class="image1"
+            src="{{ url_for('static', filename='images/illustration-article.svg') }}" alt="">
+        <div class="secondDiv">
+            <h1 class="learning">{{ learning }}</h1>
+            <span class="published">{{ published_date }}</span>
+            <button type="button">
+                <span>{{ title }}</span>
+            </button>
+            <p>{{ description }}</p>
+        </div>
+        <div class="thirdDiv">
+            <img class="image2" src="{{ url_for('static', filename='images/image-avatar.webp') }}" alt="">
+            <span class="nameSpan">{{ author }}</span>
+        </div>
+    </main>
+</body>
+
+<script>
+    const data = {{ response| tojson }};
+    console.log(data);
+</script>
+
+</html>
