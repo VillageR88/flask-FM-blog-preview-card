@@ -7,7 +7,9 @@
     <meta name="description" content="Blog preview card">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="icon" href="{{ url_for('static', filename='images/favicon-32x32.png') }}" sizes="32x32" type="image/png">
-    <link rel="prefetch" href="https://www.frontendmentor.io/articles/{{ response.data[0].slug }}">
+    {% if response %}
+        <link rel="prefetch" href="https://www.frontendmentor.io/articles/{{ response[0].slug }}">
+    {% endif %}
     <title>{{ siteTitle }}</title>
 </head>
 
@@ -15,25 +17,32 @@
     <nav>
         <select onchange="handleChange()" id="titleDropdown">
             <option value="" disabled>Select an article</option>
+            {% for article in response %}
+                <option value="{{ article.slug }}">{{ article.title }}</option>
+            {% endfor %}
         </select>
     </nav>
     <main class="mainComponent">
-        <img id="heroImage" width="336" height="201" class="image1"
-            src="{{ response.data[0].heroImage }}" alt="">
-        <div class="secondDiv">
-            <h1 id="platform">{{ response.data[0].platform | join(', ') }}</h1>
-            <span id="publishedAt" class="published">{{ response.data[0].publishedAt }}</span>
-             <a href="https://www.frontendmentor.io/articles/{{ response.data[0].slug }}" id="title">{{ response.data[0].title }}</a>
-            <p id="description">{{ response.data[0].description }}</p>
-        </div>
-        <div class="thirdDiv">
-            <img id="publisherAvatar" class="image2" alt="">
-            <span id="publisherName" class="nameSpan"></span>
-        </div>
+        {% if response %}
+            <img id="heroImage" width="336" height="201" class="image1"
+                src="{{ response[0].heroImage }}" alt="">
+            <div class="secondDiv">
+                <h1 id="platform">{{ response[0].platform | join(', ') }}</h1>
+                <span id="publishedAt" class="published">{{ response[0].publishedAt }}</span>
+                <a href="https://www.frontendmentor.io/articles/{{ response[0].slug }}" id="title">{{ response[0].title }}</a>
+                <p id="description">{{ response[0].description }}</p>
+            </div>
+            <div class="thirdDiv">
+                <img id="publisherAvatar" class="image2" alt="">
+                <span id="publisherName" class="nameSpan"></span>
+            </div>
+        {% endif %}
     </main>
 </body>
 
-<script>const data = {{ response | tojson }}.data;</script>
+<script>
+    const data = {{ response | tojson }};
+</script>
 <script src="{{ url_for('static', filename='dist/main.js') }}"></script>
 
 </html>
