@@ -1,11 +1,9 @@
 from flask import Flask, render_template, send_from_directory
 import requests
 
-
 def create_app():
     app = Flask(__name__)
 
-    
     @app.route('/')
     def index():
         response = requests.get('https://backend.frontendmentor.io/rest/v2/articles')
