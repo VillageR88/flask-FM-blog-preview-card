@@ -4,14 +4,11 @@
   "description": "This is a template for a Flask Python application.",
   "main": "index.js",
   "scripts": {
-    "build": "tsc && python3 app/freeze.py && mkdir -p public && cp -r app/build/* public/",
+    "build": "tsc && python app/freeze.py && mkdir public && cp -r app/build/* public/",
     "watch:ts": "tsc --watch",
-    "start:flask": "set FLASK_APP=app.app&& nodemon --exec flask run --ext py,ts --ignore app/static/js",
+    "start:flask": "set FLASK_APP=app.app&& nodemon --exec \"flask run\" --ext py,ts --ignore app/static/js",
     "start": "concurrently \"npm run watch:ts\" \"npm run start:flask\""
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "concurrently": "^8.2.2",
     "nodemon": "^3.1.4",

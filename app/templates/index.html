@@ -4,38 +4,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Blog preview card">
+    <meta name="description" content="Blog preview card for FM">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="icon" href="{{ url_for('static', filename='images/favicon-32x32.png') }}" sizes="32x32" type="image/png">
     {% if response %}
-        <link rel="prefetch" href="https://www.frontendmentor.io/articles/{{ response[0].slug }}">
+    <link rel="prefetch" href="https://www.frontendmentor.io/articles/{{ response[0].slug }}">
     {% endif %}
     <title>{{ siteTitle }}</title>
 </head>
 
 <body>
     <nav>
-        <select onchange="handleChange()" id="titleDropdown">
-            <option value="" disabled>Select an article</option>
-            {% for article in response %}
+        <label for="titleDropdown">
+            <select aria-label="Select an article" name="titleDropdown" onchange="handleChange()" id="titleDropdown">
+                <option value="" disabled>Select an article</option>
+                {% for article in response %}
                 <option value="{{ article.slug }}">{{ article.title }}</option>
-            {% endfor %}
-        </select>
+                {% endfor %}
+            </select>
+        </label>
     </nav>
     <main class="mainComponent">
         {% if response %}
-            <img id="heroImage" width="336" height="201" class="image1"
-                src="{{ response[0].heroImage }}" alt="">
-            <div class="secondDiv">
-                <h1 id="platform">{{ response[0].platform | join(', ') }}</h1>
-                <span id="publishedAt" class="published">{{ response[0].publishedAt }}</span>
-                <a href="https://www.frontendmentor.io/articles/{{ response[0].slug }}" id="title">{{ response[0].title }}</a>
-                <p id="description">{{ response[0].description }}</p>
-            </div>
-            <div class="thirdDiv">
-                <img id="publisherAvatar" class="image2" alt="">
-                <span id="publisherName" class="nameSpan"></span>
-            </div>
+        <img id="heroImage" width="336" height="201" class="image1" src="{{ response[0].heroImage }}" alt="">
+        <div class="secondDiv">
+            <h1 id="platform">{{ response[0].platform | join(', ') }}</h1>
+            <span id="publishedAt" class="published">{{ response[0].publishedAt }}</span>
+            <a href="https://www.frontendmentor.io/articles/{{ response[0].slug }}" id="title">{{ response[0].title
+                }}</a>
+            <p id="description">{{ response[0].description }}</p>
+        </div>
+        <div class="thirdDiv">
+            <img id="publisherAvatar" class="image2" alt="">
+            <span id="publisherName" class="nameSpan"></span>
+        </div>
         {% endif %}
     </main>
 </body>

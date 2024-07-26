@@ -46,7 +46,7 @@ nav {
   transition: 0.3s ease-in-out;
 }
 
-nav > select {
+nav select {
   outline: none;
   border: none;
   background: none;

@@ -44,6 +44,14 @@ var publisher = {
         name: 'Andrew Ezeani',
         avatar: 'https://res.cloudinary.com/dz209s6jk/image/upload/v1707821733/Avatars/hmddymwk668feuvw7lxt.jpg',
     },
+    '6531050389d8f2a7368b624a': {
+        name: 'Matt Studdert',
+        avatar: 'https://res.cloudinary.com/dz209s6jk/image/upload/v1698417018/Avatars/cptlmvtp6ghcljto2eq7.jpg',
+    },
+    '6639f81520fb35b1b603eb2f': {
+        name: 'Henry Agu',
+        avatar: 'https://res.cloudinary.com/dz209s6jk/image/upload/v1715075094/Avatars/kmmibkhx9vl3thg2h0ai.jpg',
+    },
 };
 function formatDate(dateString) {
     var options = { year: 'numeric', month: 'short', day: 'numeric' };
@@ -76,7 +84,6 @@ if (dropdown) {
         dropdown.appendChild(option);
     }
 }
-console.log(data);
 function handleChange() {
     var selected = dropdown.value;
     var selectedData = data.find(function (item) { return item.slug === selected; });
@@ -100,10 +107,6 @@ function handleChange() {
     if (publisherName)
         publisherName.textContent = publisher[selectedData.user].name;
 }
-document.addEventListener('DOMContentLoaded', function () {
-    handleColorChange();
-    dropdown.addEventListener('change', handleChange);
-});
 function handleColorChange() {
     var img = document.getElementById('heroImage');
     var bodyBackground = document.querySelector('body');
@@ -168,3 +171,5 @@ function handleColorChange() {
         return luminance > 0.4 ? '#000000' : '#FFFFFF';
     }
 }
+handleColorChange();
+handleChange();
