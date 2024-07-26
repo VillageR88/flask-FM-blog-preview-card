@@ -32,10 +32,25 @@ nav {
   background-color: white;
   box-shadow: 8px 8px 0px rgba(0, 0, 0, 1);
   width: 100%;
-  height: 100px;
+  height: 100%;
   box-sizing: border-box;
   border-radius: 20px;
   border: 1px solid black;
+  transition: 0.3s ease-in-out;
+}
+
+nav > select {
+  outline: none;
+  border: none;
+  background: none;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: "FigtreeExtraBold", sans-serif;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-block: 10px;
 }
 
 .mainComponent {
@@ -54,7 +69,10 @@ nav {
   margin: 24px;
 }
 
-.mainComponent:has(button:hover) {
+.mainComponent:has(a:hover) {
+  box-shadow: 16px 16px 0px rgba(0, 0, 0, 1);
+}
+body:has(a:hover) > nav {
   box-shadow: 16px 16px 0px rgba(0, 0, 0, 1);
 }
 
@@ -70,7 +88,7 @@ nav {
   gap: 12px;
 }
 
-.learning {
+#platform {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -84,6 +102,7 @@ nav {
   line-height: 150%;
   margin-block: auto;
   font-family: "FigtreeExtraBold", sans-serif;
+  text-transform: capitalize;
 }
 
 .published {
@@ -94,7 +113,7 @@ nav {
   font-weight: 600;
 }
 
-button {
+a {
   outline: none;
   border: none;
   width: fit-content;
@@ -103,24 +122,21 @@ button {
   padding: 0px;
   margin-block: 10px;
   background: none;
-}
-button:hover {
-  cursor: pointer;
-}
-
-button:hover > span {
-  color: #f4d04e;
-}
-
-button span {
+  text-align: left;
   color: black;
   font-size: 24px;
   font-weight: 700;
-  line-height: 100%;
-  margin-block: auto;
   font-weight: bolder;
   font-family: "FigtreeExtraBold", sans-serif;
   transition: 0.15s ease-in-out;
+  text-decoration: none;
+}
+a:hover {
+  cursor: pointer;
+}
+
+a:hover {
+  color: #f4d04e;
 }
 
 p {
@@ -140,6 +156,7 @@ p {
 .image2 {
   width: 32px;
   height: 32px;
+  border-radius: 50%;
 }
 
 .nameSpan {
@@ -159,7 +176,7 @@ p {
     width: 327px;
   }
 
-  .learning {
+  #platform {
     width: 73px;
     height: 26px;
     font-size: 12px;
@@ -169,7 +186,7 @@ p {
     font-size: 12px;
   }
 
-  button span {
+  a {
     font-size: 20px;
   }
 
